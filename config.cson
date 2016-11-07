@@ -11,10 +11,14 @@
       ".DS_Store"
       "._*"
       "Thumbs.db"
-      "node_modules/"
+      "node_modules"
       "**.js.map"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
   editor: {}
   "exception-reporting":
     userId: "19fa5cd9-b71f-cdf1-e08c-78acd5bb4eae"
