@@ -5,10 +5,8 @@ export ZSH=/home/jsral/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 export TERM=xterm-256color
-export VIM=/usr/share/nvim
-export VIMRUNTIME=/usr/share/nvim/runtime
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -85,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export VIM=/usr/share/vim/vim74
+export VIMRUNTIME=/usr/share/vim/vim74
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
@@ -94,16 +94,25 @@ export NVM_DIR="/home/jsral/.nvm"
 
 DEFAULT_USER='jsral'
 
-export VIM="/usr/share/vim"
+export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_112"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+# eval "$(anyenv init -)"
 
+[[ -s "/home/jsral/.gvm/scripts/gvm" ]] && source "/home/jsral/.gvm/scripts/gvm"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
 
-[[ -s "/home/jsral/.gvm/scripts/gvm" ]] && source "/home/jsral/.gvm/scripts/gvm"
+source /home/jsral/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Alisases
+alias worker='TERM_CHILD=1 RUN_AT_EXIT_HOOKS=yes bundle exec rake resque:work QUEUE=*'
+alias startpg='sudo service postgresql start'
