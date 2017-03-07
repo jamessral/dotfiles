@@ -1,0 +1,179 @@
+set nocompatible
+set noswapfile
+set ttimeout
+set ttimeoutlen=0
+set matchtime=0
+
+" Vim Settings {{{
+set colorcolumn=80
+syntax enable
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+set ttyfast
+set wildmenu
+set mouse=a
+
+" # http://superuser.com/questions/549930/cant-resize-vim-splits-inside-tmux
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" From http://robots.thoughtbot.com/post/27041742805/vim-you-complete-me
+"set complete=.,b,u,]
+"set wildmode=longest,list:longest
+
+" Map ESC
+let mapleader = ","               " The default leader key isn't very intuitive.
+
+set number
+set showmatch                   " matching brace/parenthesis/etc.
+set hidden                      " http://nvie.com/posts/how-i-boosted-my-vim/
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+" Use the OS clipboard by default
+set clipboard=unnamed
+
+" Indicators
+set list                          " Show hidden characters (tab and eol)
+"set listchars=trail:⋅,nbsp:⋅,tab:▸\ ,eol:¬       " Use the same chars as textmate.
+set listchars=trail:⋅,nbsp:⋅,tab:▸\
+"set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
+set showbreak=↪\
+
+" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+" easier navigation between split windows
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
+nnoremap <C-c> <esc>
+nnoremap <SPACE> <C-w>
+nnoremap <SPACE>v <C-w>v
+nnoremap <SPACE>s <C-w>s
+nnoremap <SPACE>h <C-w>h
+nnoremap <SPACE>j <C-w>j
+nnoremap <SPACE>k <C-w>k
+nnoremap <SPACE>l <C-w>l
+nnoremap <SPACE>c <C-w>c
+
+" save with space space
+nnoremap <space><space> :wa<cr>:w<cr>
+
+" Maps Alt-[h,j,k,l] to resizing a window split
+map <silent> <M-h> <C-w><
+map <silent> <M-j> <C-W>-
+map <silent> <M-k> <C-W>+
+map <silent> <M-l> <C-w>>
+
+"set ai           " always set autoindenting on
+
+set backup       " keep a backup file
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+if version >= 703
+  set undofile
+  set undodir=~/.vim/undo//
+endif
+
+set history=50    " keep 50 lines of command line history
+set ruler         " show the cursor position all the time
+set laststatus=2
+
+set title " terminal title
+set autoread " load change files
+
+" Clears the search register
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+" select last pasted
+nnoremap gp `[v`]
+
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>q gqip
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" vertical window split
+noremap <leader>v <C-w>v
+
+" horizontal window split
+noremap <leader>s <C-w>s
+
+" Edit the vimrc file
+"nmap <silent> <leader>ev :e $MYVIMRC<CR>
+"nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+nmap <silent> <leader>h :set invlist<CR>
+"nmap <silent> <leader>l :set invnumber<CR>
+nmap <silent> <leader>p :set invpaste<CR>
+
+" Open last buffer: http://www.vimbits.com/bits/22
+noremap <Leader><Leader> <C-^>
+
+" Under/Over line current line
+" http://www.vimbits.com/bits/12
+nnoremap <leader>== yyPv$r=jyypv$r=
+nnoremap <leader>** yyPv$r*jyypv$r*
+nnoremap <leader>=  yypv$r=
+nnoremap <leader>-  yypv$r-
+
+:nnoremap <Space> za
+set splitright
+set splitbelow
+
+" Relative numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+    set number
+  else
+    set rnu
+  endif
+endfunc
+
+" Toggle between normal and relative numbering.
+nnoremap <leader>; :call NumberToggle()<cr>
+"}}}
+
+" Syntax Highlighting, linting, and File Types {{{
+autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+autocmd! BufNewFile,BufRead *.pp setlocal ft=puppet
+autocmd! BufNewFile,BufRead *.md setlocal ft=markdown
+"}}}
+
+" Line splitting for brackets in insert mode [] () {}"{{{
+imap <C-l> <CR><Esc>O
+"}}}
+
+" Hybrid Line Numbers {{{
+set relativenumber
+set number
+" }}}
+
+" Folding {{{
+set foldmethod=marker
+
+" http://vim.wikia.com/wiki/Use_folds_in_your_program
+" augroup vimrc
+"   au BufReadPre * setlocal foldmethod=indent
+"   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" augroup END
+
+"Fold Tag
+"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+nnoremap <leader>ft Vatzf
+"}}}
