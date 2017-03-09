@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/jsral/.oh-my-zsh
+export ZSH=/Users/jsral/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -83,18 +83,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export VIM=/usr/share/vim/vim74
-export VIMRUNTIME=/usr/share/vim/vim74
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-export NVM_DIR="/home/jsral/.nvm"
+export NVM_DIR="/Users/jsral/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 DEFAULT_USER='jsral'
 
-export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_112"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121"
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -103,16 +101,28 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/.anyenv/bin:$PATH"
-# eval "$(anyenv init -)"
 
-[[ -s "/home/jsral/.gvm/scripts/gvm" ]] && source "/home/jsral/.gvm/scripts/gvm"
+# Lua and MoonScript
+export PATH=$PATH:/usr/local/lib/luarocks/bin/
+
+[[ -s "/Users/jsral/.gvm/scripts/gvm" ]] && source "/Users/jsral/.gvm/scripts/gvm"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
 
-source /home/jsral/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# export HAXE_STD_PATH="/usr/local/lib/haxe/std"
 
-# Alisases
+source /Users/jsral/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Aliases
 alias worker='TERM_CHILD=1 RUN_AT_EXIT_HOOKS=yes bundle exec rake resque:work QUEUE=*'
-alias startpg='sudo service postgresql start'
+alias love="/Applications/love.app/Contents/MacOS/love"
+alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias mvim="open -a MacVim.app $1"
+alias gs="git status"
+alias ga="git add -A"
+alias gf="git fetch"
+alias gp="git pull"
+
+export PATH="$HOME/.yarn/bin:$PATH"
