@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jsral/.oh-my-zsh
+export ZSH=/Users/jamessral/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -83,46 +83,74 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.rbenv/bin:$PATH"
 
-eval "$(rbenv init -)"
-
-export NVM_DIR="/Users/jsral/.nvm"
+export NVM_DIR="/Users/jamessral/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-DEFAULT_USER='jsral'
+DEFAULT_USER='jamessral'
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121"
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$HOME/apache-maven-3.3.9/bin:$PATH
+## Understory ENV
+export JDBC_DATABASE_URL="jdbc:postgresql://localhost:5432/platform?user=postgres&password=admin"
+export FILESTACK_API_KEY="AjrTKIZn6TqWZvZa0HGhKz"
+export FILESTACK_SECRET_KEY="WVAWGCMW7NDL7I47H47PVMCMKY"
+export FCM_AUTH_KEY="AAAAL6RfI78:APA91bH7JVuCJ75Bo-YIT7PJrhSY0_wJmsd7Rvf6jdxor2PLEPEu_g3hlWbCNOSsfwlI2gWNuZlvNm-KO9M8lzeRPaaoT8OG42ZvAntJOY4Z_BQeNM0azXILYKyGMwlywsR4SdDEyPQm-tj3kUW_RAynTzsiCi2GhA"
+export FIREBASE_URL="https://understory-f4875.firebaseio.com"
+export FIREBASE_KEY="understory-f4875-firebase-adminsdk-l3eda-991b9a82d3.json"
+export AWS_ACCESS_KEY="AKIAI3ILFE24NWP4QCEA"
+export AWS_SECRET_KEY="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"
+export AWS_REGION="us-west-2"
+export AWS_S3_DOMAIN="https://s3-us-west-2.amazonaws.com"
+export AWS_S3_BUCKET="understory-dev"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
-# Lua and MoonScript
-export PATH=$PATH:/usr/local/lib/luarocks/bin/
+export PATH=/usr/local/share/dotnet:$PATH
 
-[[ -s "/Users/jsral/.gvm/scripts/gvm" ]] && source "/Users/jsral/.gvm/scripts/gvm"
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gocode
-export PATH=$PATH:$GOPATH/bin
+# Love2d
+export PATH=$PATH:/Applications/love.app/Contents/MacOS
+export PATH=$PATH:/usr/local/Cellar/mono
+export ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
+export PATH=$PATH:$ECLIPSE_HOME
 
-# export HAXE_STD_PATH="/usr/local/lib/haxe/std"
+# Golang
+export GOPATH="$HOME/go"
 
-source /Users/jsral/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Mono
+export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 
 # Aliases
-alias worker='TERM_CHILD=1 RUN_AT_EXIT_HOOKS=yes bundle exec rake resque:work QUEUE=*'
-alias love="/Applications/love.app/Contents/MacOS/love"
 alias nvim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
-alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
-alias mvim="open -a MacVim.app $1"
+alias tmux='tmux -2'
 alias gs="git status"
 alias ga="git add -A"
 alias gf="git fetch"
 alias gp="git pull"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+export PATH=$PATH:"$HOME/.local/bin"
+
+# For Racket
+export PATH=$PATH:/Applications/Racket\ v6.9/bin
+
+
+# OPAM configuration
+. /Users/jamessral/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Ruby and Elixir!
+export PATH="$HOME/.rbenv/bin:$PATH"
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+source /Users/jamessral/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jamessral/.sdkman"
+[[ -s "/Users/jamessral/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jamessral/.sdkman/bin/sdkman-init.sh"
+
