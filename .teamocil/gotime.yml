@@ -1,0 +1,10 @@
+windows:
+  - name: nvim
+    root: ~/go/src/github.com/jamessral
+    layout: main-vertical
+    panes:
+      - commands:
+        - nvim
+        focus: true
+      - commands:
+        - tmux resize-pane -R 80

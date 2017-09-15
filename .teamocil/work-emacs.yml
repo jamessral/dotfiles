@@ -1,0 +1,17 @@
+windows:
+  - name: backend
+    root: ~/workspace/understory-platform
+    panes:
+      - commands:
+        - ./run
+
+  - name: webpack
+    root: ~/workspace/understory-web
+    panes:
+      - yarn dev
+
+  - name: emacs
+    root: ~/workspace/understory-web
+    panes:
+      - 'emacs -nw'
+    focus: true

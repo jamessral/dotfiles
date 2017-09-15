@@ -1,0 +1,23 @@
+windows:
+  - name: backend
+    root: ~/workspace/understory-platform
+    panes:
+      - commands:
+        - ./run
+
+  - name: webpack
+    root: ~/workspace/understory-web
+    panes:
+      - yarn dev
+
+  - name: nvim
+    root: ~/workspace/understory-web
+    layout: main-vertical
+    panes:
+      - commands:
+        - nvim
+        focus: true
+      - commands:
+        - tmux resize-pane -R 80
+    focus: true
+
