@@ -12,12 +12,13 @@ windows:
 
   - name: nvim
     root: ~/workspace/understory-web
-    layout: main-vertical
+    layout: main-horizontal
     panes:
       - commands:
         - nvim
         focus: true
       - commands:
-        - tmux resize-pane -R 80
+        - tmux resize-pane -D 30
+        - clear
     focus: true
 
