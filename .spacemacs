@@ -70,6 +70,9 @@ values."
      all-the-icons
      key-chord
      spotify
+     (godot-gdscript :location (recipe
+                             :fetcher github
+                             :repo "francogarcia/godot-gdscript.el"))
     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -306,6 +309,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (electric-pair-mode 1)
+  (spacemacs/toggle-line-numbers-off)
+  (spacemacs/toggle-highlight-current-line-globally-off)
   ;; Disable js2-mode's own validation
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
@@ -331,7 +337,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 )
 
 (defun dotspacemacs/user-config ()
-
   ;; don't wrap lines
   (spacemacs/toggle-truncate-lines-on)
 
@@ -352,8 +357,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (define-key evil-normal-state-map (kbd ", s") 'evil-window-split)
   (define-key evil-normal-state-map (kbd ", /") 'evil-search-highlight-persist-remove-all)
 
-  (electric-pair-mode 1)
-  (spacemacs/toggle-line-numbers-off)
   (setq-default company-idle-delay 0.5)
 
   ;; Use all the icons for NeoTree
@@ -388,32 +391,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (require 'json)
   (require 'flycheck)
 
-  ;; (defun flycheck-parse-flow (output checker buffer)
-  ;;   (let ((json-array-type 'list))
-  ;;     (let ((o (json-read-from-string output)))
-  ;;       (mapcar #'(lambda (errp)
-  ;;                   (let ((err (cadr (assoc 'message errp))))
-  ;;                     (flycheck-error-new
-  ;;                      :line (cdr (assoc 'line err))
-  ;;                      :column (cdr (assoc 'start err))
-  ;;                      :level 'error
-  ;;                      :message (cdr (assoc 'descr err))
-  ;;                      :filename (f-relative
-  ;;                                 (cdr (assoc 'path err))
-  ;;                                 (f-dirname (file-truename
-  ;;                                             (buffer-file-name))))
-  ;;                      :buffer buffer
-  ;;                      :checker checker)))
-  ;;               (cdr (assoc 'errors o))))))
-
-  ;; (flycheck-define-checker javascript-flow
-  ;;   "Javascript type checking using Flow."
-  ;;   :command ("flow" "--json" source-original)
-  ;;   :error-parser flycheck-parse-flow
-  ;;   :modes react-mode
-  ;;   :next-checkers ((error . javascript-eslint))
-  ;;   )
-  ;; (add-to-list 'flycheck-checkers 'javascript-flow)
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
@@ -453,7 +430,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (ess-smart-equals ess-R-data-view winum white-sand-theme unfill solarized-theme rebecca-theme org-category-capture org-mime madhat2r-theme fuzzy exotica-theme transient lv sesman parseedn parseclj a cobalt geiser spotify sanithinc-tomorrow-night-theme all-the-icons memoize fsharp-mode company-quickhelp tomorrow-night-eighties-theme tide typescript-mode ob-elixir flycheck-mix flycheck-credo alchemist elixir-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help gruvbox-theme-theme sanityinc-solarized-ligth-theme helm-ispell flycheck-elm elm-mode utop tuareg caml toml-mode racket-mode faceup racer ocp-indent merlin intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-rust flycheck-haskell erlang company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode clojure-snippets clj-refactor edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode cargo rust-mode slime-company slime omnisharp shut-up lua-mode glsl-mode csharp-mode common-lisp-snippets key-chord disaster company-c-headers cmake-mode clang-format xkcd typit mmt selectric-mode pacmacs 2048-game zonokai-theme zenburn-theme zen-and-art-theme yaml-mode web-mode web-beautify underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme sql-indent spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode seti-theme scss-mode sass-mode reverse-theme railscasts-theme purple-haze-theme pug-mode projectile-rails inflections professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme orgit organic-green-theme org-projectile org-present org org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mwim mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow lush-theme livid-mode skewer-mode simple-httpd light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme inkpot-theme htmlize heroku-theme hemisu-theme helm-gitignore helm-css-scss helm-company helm-c-yasnippet hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme go-guru go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme firebelly-theme feature-mode farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme emmet-mode dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web web-completion-data company-tern dash-functional tern company-statistics company-go go-mode company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete bundler rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
+    (godot-gdscript ess-smart-equals ess-R-data-view winum white-sand-theme unfill solarized-theme rebecca-theme org-category-capture org-mime madhat2r-theme fuzzy exotica-theme transient lv sesman parseedn parseclj a cobalt geiser spotify sanithinc-tomorrow-night-theme all-the-icons memoize fsharp-mode company-quickhelp tomorrow-night-eighties-theme tide typescript-mode ob-elixir flycheck-mix flycheck-credo alchemist elixir-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help gruvbox-theme-theme sanityinc-solarized-ligth-theme helm-ispell flycheck-elm elm-mode utop tuareg caml toml-mode racket-mode faceup racer ocp-indent merlin intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-rust flycheck-haskell erlang company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode clojure-snippets clj-refactor edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode cargo rust-mode slime-company slime omnisharp shut-up lua-mode glsl-mode csharp-mode common-lisp-snippets key-chord disaster company-c-headers cmake-mode clang-format xkcd typit mmt selectric-mode pacmacs 2048-game zonokai-theme zenburn-theme zen-and-art-theme yaml-mode web-mode web-beautify underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme sql-indent spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode seti-theme scss-mode sass-mode reverse-theme railscasts-theme purple-haze-theme pug-mode projectile-rails inflections professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme orgit organic-green-theme org-projectile org-present org org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mwim mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow lush-theme livid-mode skewer-mode simple-httpd light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme inkpot-theme htmlize heroku-theme hemisu-theme helm-gitignore helm-css-scss helm-company helm-c-yasnippet hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme go-guru go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme firebelly-theme feature-mode farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme emmet-mode dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web web-completion-data company-tern dash-functional tern company-statistics company-go go-mode company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete bundler rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
  '(paradox-github-token t)
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
