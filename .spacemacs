@@ -309,9 +309,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (electric-pair-mode 1)
-  (spacemacs/toggle-line-numbers-off)
-  (spacemacs/toggle-highlight-current-line-globally-off)
   ;; Disable js2-mode's own validation
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
@@ -339,6 +336,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun dotspacemacs/user-config ()
   ;; don't wrap lines
   (spacemacs/toggle-truncate-lines-on)
+  (electric-pair-mode 1)
+  (spacemacs/toggle-line-numbers-off)
+  (spacemacs/toggle-highlight-current-line-globally-off)
 
   (setq mac-command-modifier 'control)
 
