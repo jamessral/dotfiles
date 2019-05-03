@@ -33,9 +33,9 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # add some gaps
-for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+# for_window [class="^.*"] border pixel 2
+# gaps inner 5
+# gaps outer 5
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -121,6 +121,8 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+greater move workspace to output left
+bindsym $mod+Shift+less move workspace to output right
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -168,6 +170,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -184,7 +196,9 @@ bar {
     }
 }
 
-exec_always --no-startup-id feh --bg-scale "/usr/share/wallpapers/Kluane Sylvia/contents/images/5760x3840.jpg"
+exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/moog.png"
+exec_always setxkbmap us -option ctrl:nocaps
+exec_always xrandr --output eDP-1 --right-of HDMI-1
 client.focused #99cc99 #99cc99 #000000 #2d2d2d
 client.focused_inactive #393939 #393939 #888888 #292d2e
 client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
