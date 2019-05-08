@@ -142,6 +142,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# lock the screen
+bindsym $mod+Shift+Return exec "xflock4"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -206,7 +208,8 @@ bar {
 
 exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/Sister Mountains.jpg"
 exec_always setxkbmap us -option ctrl:nocaps
-exec_always xrandr --output HDMI-1 --right-of eDP-1
+exec_always --no-startup-id compton
+exec emacs --daemon
 client.focused #99cc99 #99cc99 #000000 #2d2d2d
 client.focused_inactive #393939 #393939 #888888 #292d2e
 client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
