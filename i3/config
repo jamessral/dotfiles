@@ -171,9 +171,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+exec --no-startup-id volumeicon
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -196,9 +204,9 @@ bar {
     }
 }
 
-exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/moog.png"
+exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/Sister Mountains.jpg"
 exec_always setxkbmap us -option ctrl:nocaps
-exec_always xrandr --output eDP-1 --right-of HDMI-1
+exec_always xrandr --output HDMI-1 --right-of eDP-1
 client.focused #99cc99 #99cc99 #000000 #2d2d2d
 client.focused_inactive #393939 #393939 #888888 #292d2e
 client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
