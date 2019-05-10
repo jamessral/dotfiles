@@ -208,7 +208,7 @@ bar {
 
 exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/Sister Mountains.jpg"
 exec_always setxkbmap us -option ctrl:nocaps
-exec_always --no-startup-id compton
+exec_always --no-startup-id compton -b
 exec emacs --daemon
 client.focused #99cc99 #99cc99 #000000 #2d2d2d
 client.focused_inactive #393939 #393939 #888888 #292d2e
