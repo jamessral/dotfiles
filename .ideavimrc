@@ -3,6 +3,8 @@ set noswapfile
 set ttimeout
 set ttimeoutlen=0
 set matchtime=0
+set surround
+set multiple-cursors
 
 " Vim Settings {{{
 set colorcolumn=80
@@ -24,7 +26,7 @@ endif
 "set wildmode=longest,list:longest
 
 " Map ESC
-let mapleader = ","               " The default leader key isn't very intuitive.
+let mapleader = " "               " The default leader key isn't very intuitive.
 
 set number
 set showmatch                   " matching brace/parenthesis/etc.
@@ -58,17 +60,10 @@ set smartcase                   " ... unless they contain at least one capital l
 " nnoremap <c-h> <c-w>h
 " nnoremap <c-l> <c-w>l
 nnoremap <C-c> <esc>
-nnoremap <SPACE> <C-w>
-nnoremap <SPACE>v <C-w>v
-nnoremap <SPACE>s <C-w>s
-nnoremap <SPACE>h <C-w>h
-nnoremap <SPACE>j <C-w>j
-nnoremap <SPACE>k <C-w>k
-nnoremap <SPACE>l <C-w>l
-nnoremap <SPACE>c <C-w>c
+set ttimeoutlen=100
+imap jk <esc>
 
-" save with space space
-nnoremap <space><space> :wa<cr>:w<cr>
+nnoremap <cr> :w<cr>
 
 " Maps Alt-[h,j,k,l] to resizing a window split
 map <silent> <M-h> <C-w><
@@ -112,68 +107,6 @@ noremap <leader>v <C-w>v
 " horizontal window split
 noremap <leader>s <C-w>s
 
-" Edit the vimrc file
-"nmap <silent> <leader>ev :e $MYVIMRC<CR>
-"nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 nmap <silent> <leader>h :set invlist<CR>
 "nmap <silent> <leader>l :set invnumber<CR>
 nmap <silent> <leader>p :set invpaste<CR>
-
-" Open last buffer: http://www.vimbits.com/bits/22
-noremap <Leader><Leader> <C-^>
-
-" Under/Over line current line
-" http://www.vimbits.com/bits/12
-nnoremap <leader>== yyPv$r=jyypv$r=
-nnoremap <leader>** yyPv$r*jyypv$r*
-nnoremap <leader>=  yypv$r=
-nnoremap <leader>-  yypv$r-
-
-:nnoremap <Space> za
-set splitright
-set splitbelow
-
-" Relative numbering
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set nornu
-    set number
-  else
-    set rnu
-  endif
-endfunc
-
-" Toggle between normal and relative numbering.
-nnoremap <leader>; :call NumberToggle()<cr>
-"}}}
-
-" Syntax Highlighting, linting, and File Types {{{
-autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
-autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
-autocmd! BufNewFile,BufRead *.pp setlocal ft=puppet
-autocmd! BufNewFile,BufRead *.md setlocal ft=markdown
-"}}}
-
-" Line splitting for brackets in insert mode [] () {}"{{{
-imap <C-l> <CR><Esc>O
-"}}}
-
-" Hybrid Line Numbers {{{
-set relativenumber
-set number
-" }}}
-
-" Folding {{{
-set foldmethod=marker
-
-" http://vim.wikia.com/wiki/Use_folds_in_your_program
-" augroup vimrc
-"   au BufReadPre * setlocal foldmethod=indent
-"   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-" augroup END
-
-"Fold Tag
-"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
-nnoremap <leader>ft Vatzf
-"}}}
