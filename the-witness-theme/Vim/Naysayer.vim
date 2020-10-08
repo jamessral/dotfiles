@@ -1,8 +1,8 @@
 
 
-  
+
   if &background == 'dark'
-    
+
   let s:shade0 = "#072626"
   let s:shade1 = "#243a35"
   let s:shade2 = "#414f43"
@@ -19,13 +19,13 @@
   let s:accent5 = "#0ab1af"
   let s:accent6 = "#73ec82"
   let s:accent7 = "#d3b58d"
-  
-  endif
-  
 
-  
+  endif
+
+
+
   if &background == 'light'
-    
+
   let s:shade0 = "#fafafa"
   let s:shade1 = "#cdced1"
   let s:shade2 = "#a0a1a7"
@@ -42,13 +42,13 @@
   let s:accent5 = "#4078f2"
   let s:accent6 = "#a626a4"
   let s:accent7 = "#ca1243"
-  
+
   endif
-  
+
 
   highlight clear
   syntax reset
-  let g:colors_name = "ThemerVim"
+  let g:colors_name = "Naysayer"
 
   """"""""""
   " Normal "
@@ -152,4 +152,4 @@
   """"""""""""
 
   unlet s:shade0 s:shade1 s:shade2 s:shade3 s:shade4 s:shade5 s:shade6 s:shade7 s:accent0 s:accent1 s:accent2 s:accent3 s:accent4 s:accent5 s:accent6 s:accent7
-  
+
