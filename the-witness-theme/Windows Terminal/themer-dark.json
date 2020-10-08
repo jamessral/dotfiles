@@ -1,10 +1,10 @@
 {
   "name": "Themer Dark",
   "background": "#072626",
-  "foreground": "#979eab",
+  "foreground": "#d3b58d",
   "cursorColor": "#90ee90",
   "selectionBackground": "#ffffff",
-  "black": "#00acff",
+  "black": "#0045ff",
   "brightBlack": "#3fdf1f",
   "red": "#f92672",
   "brightRed": "#F14377",
@@ -18,6 +18,6 @@
   "brightPurple": "#9DE38F",
   "cyan": "#a6e22e",
   "brightCyan": "#AFD941",
-  "white": "#979eab",
+  "white": "#d3b58d",
   "brightWhite": "#d3b58d"
 }

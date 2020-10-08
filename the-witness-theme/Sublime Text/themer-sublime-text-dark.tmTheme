@@ -14,15 +14,15 @@
           <key>caret</key>
           <string>#90ee90</string>
           <key>foreground</key>
-          <string>#979eab</string>
+          <string>#d3b58d</string>
           <key>invisibles</key>
           <string>#393e48</string>
           <key>lineHighlight</key>
           <string>#393e48</string>
           <key>selection</key>
-          <string>#00acff</string>
+          <string>#0045ff</string>
           <key>selectionBorder</key>
-          <string>#828997</string>
+          <string>#d3b58d</string>
           <key>findHighlight</key>
           <string>#0fdfaf</string>
           <key>findHighlightForeground</key>
@@ -30,11 +30,11 @@
           <key>activeGuide</key>
           <string>#add8e6</string>
           <key>bracketsForeground</key>
-          <string>#979eab7F</string>
+          <string>#d3b58d7F</string>
           <key>bracketsOptions</key>
           <string>stippled_underline</string>
           <key>bracketsContentsForeground</key>
-          <string>#979eab7F</string>
+          <string>#d3b58d7F</string>
           <key>tagsOptions</key>
           <string>stippled_underline</string>
         </dict>
@@ -47,7 +47,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#00acff</string>
+          <string>#0045ff</string>
         </dict>
       </dict>
       <dict>

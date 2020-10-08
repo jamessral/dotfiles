@@ -12,11 +12,11 @@
             </linearGradient>
             <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="shadeGradientDark">
               <stop stop-color="#393e48" offset="0%"></stop>
-              <stop stop-color="#00acff" offset="16.67%"></stop>
+              <stop stop-color="#0045ff" offset="16.67%"></stop>
               <stop stop-color="#3fdf1f" offset="33.33%"></stop>
-              <stop stop-color="#636d83" offset="50%"></stop>
-              <stop stop-color="#828997" offset="66.67%"></stop>
-              <stop stop-color="#979eab" offset="83.33%"></stop>
+              <stop stop-color="#d3b58d" offset="50%"></stop>
+              <stop stop-color="#d3b58d" offset="66.67%"></stop>
+              <stop stop-color="#d3b58d" offset="83.33%"></stop>
               <stop stop-color="#d3b58d" offset="100%"></stop>
             </linearGradient>
           </defs>

@@ -28,7 +28,7 @@ COLOR_04=$(rgb_color "#0fdfaf")           # COMMAND_COLOR2
 COLOR_05=$(rgb_color "#ffffff")           # PATH
 COLOR_06=$(rgb_color "#ffffff")           # SYNTAX_VAR
 COLOR_07=$(rgb_color "#a6e22e")           # PROMPT
-COLOR_08=$(rgb_color "#979eab")           #
+COLOR_08=$(rgb_color "#d3b58d")           #
 
 COLOR_09=$(rgb_color "#393e48")           #
 COLOR_10=$(rgb_color "#add8e6")           # COMMAND_ERROR
@@ -40,7 +40,7 @@ COLOR_15=$(rgb_color "#a6e22e")           #
 COLOR_16=$(rgb_color "#d3b58d")           #
 
 BACKGROUND_COLOR=$(gnome_color '#072626')
-FOREGROUND_COLOR=$(gnome_color '#979eab')   # Text
+FOREGROUND_COLOR=$(gnome_color '#d3b58d')   # Text
 CURSOR_COLOR=$(gnome_color '#90ee90') # Cursor
 
 gnomeVersion="$(expr "$(gnome-terminal --version)" : '.* (.*[.].*[.].*)$')"
