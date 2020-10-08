@@ -22,26 +22,26 @@ rgb_color() {
 }
 
 COLOR_01=$(rgb_color "#072626")              # HOST
-COLOR_02=$(rgb_color "#894056")           # SYNTAX_STRING
-COLOR_03=$(rgb_color "#0ab1af")           # COMMAND
-COLOR_04=$(rgb_color "#f8db5d")           # COMMAND_COLOR2
-COLOR_05=$(rgb_color "#0ab1af")           # PATH
-COLOR_06=$(rgb_color "#d3b58d")           # SYNTAX_VAR
-COLOR_07=$(rgb_color "#1eb11f")           # PROMPT
-COLOR_08=$(rgb_color "#b6a17e")           #
+COLOR_02=$(rgb_color "#f92672")           # SYNTAX_STRING
+COLOR_03=$(rgb_color "#0fdfaf")           # COMMAND
+COLOR_04=$(rgb_color "#0fdfaf")           # COMMAND_COLOR2
+COLOR_05=$(rgb_color "#ffffff")           # PATH
+COLOR_06=$(rgb_color "#ffffff")           # SYNTAX_VAR
+COLOR_07=$(rgb_color "#a6e22e")           # PROMPT
+COLOR_08=$(rgb_color "#979eab")           #
 
-COLOR_09=$(rgb_color "#243a35")           #
-COLOR_10=$(rgb_color "#d3b58d")           # COMMAND_ERROR
-COLOR_11=$(rgb_color "#1eb11f")           # EXEC
-COLOR_12=$(rgb_color "#f8db5d")           #
-COLOR_13=$(rgb_color "#0ab1af")           # FOLDER
-COLOR_14=$(rgb_color "#d3b58d")           #
-COLOR_15=$(rgb_color "#1eb11f")           #
+COLOR_09=$(rgb_color "#393e48")           #
+COLOR_10=$(rgb_color "#add8e6")           # COMMAND_ERROR
+COLOR_11=$(rgb_color "#a6e22e")           # EXEC
+COLOR_12=$(rgb_color "#0fdfaf")           #
+COLOR_13=$(rgb_color "#ffffff")           # FOLDER
+COLOR_14=$(rgb_color "#ffffff")           #
+COLOR_15=$(rgb_color "#a6e22e")           #
 COLOR_16=$(rgb_color "#d3b58d")           #
 
 BACKGROUND_COLOR=$(gnome_color '#072626')
-FOREGROUND_COLOR=$(gnome_color '#b6a17e')   # Text
-CURSOR_COLOR=$(gnome_color '#73ec82') # Cursor
+FOREGROUND_COLOR=$(gnome_color '#979eab')   # Text
+CURSOR_COLOR=$(gnome_color '#90ee90') # Cursor
 
 gnomeVersion="$(expr "$(gnome-terminal --version)" : '.* (.*[.].*[.].*)$')"
 dircolors_checked=false
