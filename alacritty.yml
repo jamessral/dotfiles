@@ -15,33 +15,54 @@ window:
   dynamic_padding: true
 
 font:
+  normal:
+    family: Liberation Mono
+  bold:
+    family: Liberation Mono
+  italic:
+    family: Liberation Mono
+
+font:
   size: 14.0
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '#f9f5d7'
-    background: '#FFFFD7'
-    # soft contrast: background = '#f2e5bc'
-    foreground: '#3c3836'
+    background: '#072626'
+    foreground: '#d3b58d'
 
-  # Normal colors
+  cursor:
+    text: '#072626'
+    cursor: '#90ee90'
+
+  selection:
+    text: '#072626'
+    background: '#ffffff'
+
   normal:
-    black: '#fbf1c7'
-    red: '#cc241d'
-    green: '#98971a'
-    yellow: '#d79921'
-    blue: '#458588'
-    magenta: '#b16286'
-    cyan: '#689d6a'
-    white: '#7c6f64'
+    black: '#0045ff'
+    red: '#f92672'
+    green: '#0fdfaf'
+    yellow: '#0fdfaf'
+    blue: '#ffffff'
+    magenta: '#ffffff'
+    cyan: '#a6e22e'
+    white: '#d3b58d'
 
-  # Bright colors
   bright:
-    black: '#928374'
-    red: '#9d0006'
-    green: '#79740e'
-    yellow: '#b57614'
-    blue: '#076678'
-    magenta: '#8f3f71'
-    cyan: '#427b58'
-    white: '#3c3836'
+    black: '#3fdf1f'
+    red: '#F14377'
+    green: '#36D7A8'
+    yellow: '#36D7A8'
+    blue: '#F6F0E8'
+    magenta: '#F6F0E8'
+    cyan: '#AFD941'
+    white: '#d3b58d'
+
+  dim:
+    black: '#393e48'
+    red: '#C92663'
+    green: '#0DBA94'
+    yellow: '#0DBA94'
+    blue: '#CDD4D4'
+    magenta: '#CDD4D4'
+    cyan: '#86BC2C'
+    white: '#d3b58d'
