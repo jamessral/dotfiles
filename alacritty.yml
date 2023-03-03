@@ -16,18 +16,18 @@ window:
 
 font:
   normal:
-    family: Liberation Mono
+    family: Incosolata
   bold:
-    family: Liberation Mono
+    family: Incosolata
   italic:
-    family: Liberation Mono
+    family: Incosolata
 
 font:
-  size: 14.0
+  size: 15.0
 colors:
   primary:
     background: '#072626'
-    foreground: '#d3b58d'
+    foreground: '#979eab'
 
   cursor:
     text: '#072626'
@@ -38,14 +38,14 @@ colors:
     background: '#ffffff'
 
   normal:
-    black: '#0045ff'
+    black: '#00acff'
     red: '#f92672'
     green: '#0fdfaf'
     yellow: '#0fdfaf'
     blue: '#ffffff'
     magenta: '#ffffff'
     cyan: '#a6e22e'
-    white: '#d3b58d'
+    white: '#979eab'
 
   bright:
     black: '#3fdf1f'
@@ -65,4 +65,7 @@ colors:
     blue: '#CDD4D4'
     magenta: '#CDD4D4'
     cyan: '#86BC2C'
-    white: '#d3b58d'
+    white: '#828997'
+
+
+
