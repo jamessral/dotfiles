@@ -13,7 +13,8 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Night Owlish Light'
+-- config.color_scheme = 'Builtin Solarized Light'
+config.color_scheme = 'Man Page'
 config.colors = { cursor_fg = 'rgba(200,200,200,0.9)' }
 
 
