@@ -18,7 +18,7 @@ config.color_scheme = 'Gruvbox Light'
 config.colors = { cursor_fg = 'rgba(200,200,200,0.9)' }
 
 
-config.font = wezterm.font 'Liberation Mono'
+config.font = wezterm.font 'Source Code Pro'
 config.font_size = 15
 
 -- and finally, return the configuration to wezterm
