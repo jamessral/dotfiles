@@ -14,7 +14,7 @@ end
 
 -- For example, changing the color scheme:
 -- config.color_scheme = 'Builtin Solarized Light'
-config.color_scheme = 'Gruvbox Light'
+config.color_scheme = 'Pencil Light (Gogh)'
 config.colors = { cursor_fg = 'rgba(200,200,200,0.9)' }
 
 
