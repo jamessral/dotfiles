@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exep="$HOME/.local/bin/$1"
+
+subl -w "$exep"

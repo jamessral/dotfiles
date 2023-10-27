@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+class Runner
+  attr_reader :args
+
+  def initialize
+    @args = ARGV.unshift
+  end
+
+  def run
+    if args.first == "help"
+      help
+    else
+      if is_valid?
+        system "cd #{destination} && clear && tmux"
+      else
+        puts "Invalid args.\n"
+        help
+      end
+    end
+  end
+
+  def help
+    puts "workon [dir] [repo-name]. Requires tmux.\n"
+  end
+
+  def is_valid?
+    args.length == 2
+  end
+
+  private
+
+  def destination
+    "~/#{args[0]}/#{args[1]}"
+  end
+end
+
+Runner.new.run

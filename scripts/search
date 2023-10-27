@@ -1,0 +1,6 @@
+#!/bin/bash
+
+lynx "https://search.brave.com/search?q=$*"
+
+
+
